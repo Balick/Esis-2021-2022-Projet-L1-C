@@ -91,7 +91,7 @@ void Ajoute(int *nb_personnes, Personne *annuaire) {
     if (reussi == 0) {
         return;
     } else { // Dans le cas contraire, on ajoute la personne dans l'annuaire.
-        if (*nb_personnes < T_ANNUAIRE) {
+        if (*nb_personnes < NOMBRE_PERSONNES) {
             annuaire[*nb_personnes] = personne;
             (*nb_personnes)++;
         } else {

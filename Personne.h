@@ -10,7 +10,7 @@
 #include <string.h>
 #include <ctype.h>
 #define TAILLE_MAX 255
-#define T_ANNUAIRE 10
+#define NOMBRE_PERSONNES 10
 
 static char tab[TAILLE_MAX][50] = {{}};
 

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/programmation/Projet$ C$ L1/cmake-build-debug/
+cmake_ninja_workdir = C$:/programmation/Esis-2021-2022-Projet-L1-C/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target Projet_C_L1
 
@@ -49,13 +49,13 @@ cmake_ninja_workdir = C$:/programmation/Projet$ C$ L1/cmake-build-debug/
 
 build cmake_object_order_depends_target_Projet_C_L1: phony || CMakeFiles/Projet_C_L1.dir
 
-build CMakeFiles/Projet_C_L1.dir/main.c.obj: C_COMPILER__Projet_C_L1_Debug C$:/programmation/Projet$ C$ L1/main.c || cmake_object_order_depends_target_Projet_C_L1
+build CMakeFiles/Projet_C_L1.dir/main.c.obj: C_COMPILER__Projet_C_L1_Debug C$:/programmation/Esis-2021-2022-Projet-L1-C/main.c || cmake_object_order_depends_target_Projet_C_L1
   DEP_FILE = CMakeFiles\Projet_C_L1.dir\main.c.obj.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles\Projet_C_L1.dir
   OBJECT_FILE_DIR = CMakeFiles\Projet_C_L1.dir
 
-build CMakeFiles/Projet_C_L1.dir/Personne.c.obj: C_COMPILER__Projet_C_L1_Debug C$:/programmation/Projet$ C$ L1/Personne.c || cmake_object_order_depends_target_Projet_C_L1
+build CMakeFiles/Projet_C_L1.dir/Personne.c.obj: C_COMPILER__Projet_C_L1_Debug C$:/programmation/Esis-2021-2022-Projet-L1-C/Personne.c || cmake_object_order_depends_target_Projet_C_L1
   DEP_FILE = CMakeFiles\Projet_C_L1.dir\Personne.c.obj.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles\Projet_C_L1.dir
@@ -84,7 +84,7 @@ build Projet_C_L1.exe: C_EXECUTABLE_LINKER__Projet_C_L1_Debug CMakeFiles/Projet_
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\programmation\Projet C L1\cmake-build-debug" && "C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\programmation\Esis-2021-2022-Projet-L1-C\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -95,7 +95,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\programmation\Projet C L1\cmake-build-debug" && "C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"C:\programmation\Projet C L1" -B"C:\programmation\Projet C L1\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D C:\programmation\Esis-2021-2022-Projet-L1-C\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\programmation\Esis-2021-2022-Projet-L1-C -BC:\programmation\Esis-2021-2022-Projet-L1-C\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -113,7 +113,7 @@ build Projet_C_L1: phony Projet_C_L1.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/programmation/Projet C L1/cmake-build-debug
+# Folder: C:/programmation/Esis-2021-2022-Projet-L1-C/cmake-build-debug
 
 build all: phony Projet_C_L1.exe
 
