@@ -4,6 +4,13 @@
 
 #include "Personne.h"
 
+void msg_erreur_numero_operation(char *num_operation) {
+    printf("\n*-------------------------------------------------------------------*\n");
+    printf("|     ERREUR :  Aucune operation ne correspond a votre entree       |=> %s\n", num_operation);
+    printf("*-------------------------------------------------------------------*\n\n");
+    printf("\a"); // Déclenchement d'un bip sonore lors du message d'erreur
+}
+
 int main() {
 
     /**************************************** Ceci est un message d'accueil **************************************/
@@ -20,6 +27,7 @@ int main() {
     Personne annuaire[NOMBRE_PERSONNES]; // Annuaire du tableau des personnes
     int num_operation; // Numéro de l'opération
     int nb_personnes; // Nombre des personnes dans le tableau
+    char entree_utilisateur[255]; // Donnée entrée au clavier par l'utilisateur
 
     // Initialisation de la variable nb_personnes
     // Initialisation à 0 parce qu'au début l'annuaire est vide
@@ -45,11 +53,31 @@ int main() {
         printf("*--------------------------------------------------------------------------------------*\n\n");
 
 
-        // Démande à l'utilisateur de saisir une valeur
+        // Message de demande de saisie d'une valeur
         printf("*-------------------------------------------------------------------*\n");
         printf("|  *-> Entrer le numero de l'operation que vous souhaitez effectuer |\n");
         printf("*-------------------------------------------------------------------* : ");
-        scanf("%d", &num_operation);
+
+        // La variable entree_utilisateur devrait nécessairement etre une chaine de caractères
+        // pour éviter le plantage du programme en cas de saisie d'une valeur d'un type différent de la variable
+        // La chaine de caractères justement permet de convertir toutes les saisies de l'utilisateur en chaine de caractères
+        // Si par exemple le type de la variable entree_utilisateur était un entier, le programme planterait si l'utilisateur
+        // saisi une lettre par exemple ou un caractère qui n'est pas un nombre.
+
+        scanf("%s", &entree_utilisateur); // Attente de la machine pour la saisie d'une valeur
+
+        // Si la saisie entrée au clavier contient plus d'un caractère,
+        // un message d'erreur est affiché et le programme continue de tourner en ignorant
+        // la suite du fichier et en retournant au point ou le programme demande
+        // à l'utilisateur de saisir le numéro de l'opération
+        if (strlen(entree_utilisateur) != 1) {
+            msg_erreur_numero_operation(entree_utilisateur);
+            continue;
+        }
+
+        // Conversion de la valeur de la variable entree_utilisateur en un entier
+        // pour la stocker dans la variable num_operation
+        num_operation = strtol(entree_utilisateur, NULL, 10);
 
         switch (num_operation) {
             case 1: Ajoute(&nb_personnes, annuaire);
@@ -66,10 +94,7 @@ int main() {
             default:
                 // Dans le cas ou l'utilisateur n'a pas saisi un chiffre qui correspond à une opération disponible :
                 // Un message d'erreur est affiché
-                printf("\n*-------------------------------------------------------------------*\n");
-                printf("|        ERREUR :  Aucune operation ne correspond a ce numero       |=> %d\n", num_operation);
-                printf("*-------------------------------------------------------------------*\n\n");
-                printf("\a"); // Déclenchement d'un bip sonore lors du message d'erreur
+                msg_erreur_numero_operation(entree_utilisateur);
                 // et le programme doit continuer de tourner
                 continue;
         }
