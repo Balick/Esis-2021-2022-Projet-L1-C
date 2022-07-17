@@ -81,21 +81,20 @@ void Ajoute(int *nombre_total_personnes, Personne *annuaire) {
 
 /**
  * Liste toutes les personnes présentes dans l'annuaire
- * @param annuaire       est le tableau qui contient toutes les personnes
- * @param nb_personnes   est le nombre des personnes présentes dans le tableau annuaire
+ * @param annuaire tableau dans lequel une personne est ajoutée
+ * @param nombre_total_personnes personnes disponible dans le tableau annuaire
  */
-void Affiche(int nb_personnes, Personne *annuaire) {
-    printf("\n==> ANNUAIRE DES PERSONNES <==\n--------------------------------\n");
-
-    if (nb_personnes == 0) {
-        printf("    Aucune personne n'est enregistré\n\n");
-        return;
-    }
-    else {
-        for (int i = 0; i < nb_personnes ; ++i) {
-            printf("    %d. %s : %s\n", (i+1), &annuaire[i].nom, &annuaire[i].telephone);
+void Affiche(int nombre_total_personnes, Personne *annuaire) {
+    printf("*-> ANNUAIRE | Nombre total des personnes : %d\n", nombre_total_personnes);
+    if (nombre_total_personnes == 0) {
+        printf("*-> Aucune personne n'est enregistre dans l'annuaire\n\n");
+    } else {
+        printf("*------------------------------------------------*\n");
+        for (int i = 0; i < nombre_total_personnes ; ++i) {
+            printf("|   %d. %s : %s\n", (i+1), &annuaire[i].nom, &annuaire[i].telephone);
         }
-        printf("=================================\n\n");
+
+        printf("*------------------------------------------------*\n\n");
     }
 }
 
