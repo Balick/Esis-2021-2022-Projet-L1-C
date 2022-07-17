@@ -10,6 +10,7 @@
  * Définition des valeurs des attributs de la structure Personne
  * @param personne personne dans laquelle les attributs sont définis
  * @return 1 en cas de succès, sinon 0
+ * @version 2
  */
 int Acquisition(Personne* personne) {
 
@@ -56,6 +57,7 @@ int Acquisition(Personne* personne) {
  * Ajoute une personne dans le tableau annuaire.
  * @param annuaire tableau dans lequel une personne est ajoutée
  * @param nombre_total_personnes personnes disponible dans le tableau annuaire
+ * * @version 2
  */
 void Ajoute(int *nombre_total_personnes, Personne *annuaire) {
     Personne personne_a_ajouter; // Personne à ajouter dans l'annuaire
@@ -83,6 +85,7 @@ void Ajoute(int *nombre_total_personnes, Personne *annuaire) {
  * Liste toutes les personnes présentes dans l'annuaire
  * @param annuaire tableau des éléments à afficher
  * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
+ * * @version 2
  */
 void Affiche(int nombre_total_personnes, Personne *annuaire) {
     printf("*-> ANNUAIRE | Nombre total des personnes : %d\n", nombre_total_personnes);
@@ -103,6 +106,7 @@ void Affiche(int nombre_total_personnes, Personne *annuaire) {
  * @param annuaire contient les éléments à effacés
  * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
  * @return 1 si la suppression a réussi, sinon retourne 0
+ * * @version 2
  */
 void Efface(Personne *annuaire, int *nombre_total_personnes) {
 
@@ -148,6 +152,7 @@ void Efface(Personne *annuaire, int *nombre_total_personnes) {
  * Recherche le numéro de téléphone d'une personne
  * @param annuaire annuaire des personnes
  * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
+ * * @version 2
  */
 void RechercheTel(Personne *annuaire, int nombre_total_personnes) {
     char nom_personne[50]; // Nom de la personne
@@ -172,6 +177,7 @@ void RechercheTel(Personne *annuaire, int nombre_total_personnes) {
  * Recherche le numéro de téléphone d'une personne
  * @param annuaire annuaire des personnes
  * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
+ * * @version 2
  */
 void RechercheNom(Personne *annuaire, int nombre_total_personnes) {
     char telephone_personne[50]; // Nom de la personne
@@ -195,6 +201,7 @@ void RechercheNom(Personne *annuaire, int nombre_total_personnes) {
  * Trie le tableau annuaire par ordre alphabétique
  * @param annuaire annuaire des personnes
  * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
+ * * @version 2
  */
 void Trier_tableau_annuaire(Personne *annuaire, int nombre_total_personnes) {
     Personne temp; // Ceci est une variable temporaire
@@ -222,6 +229,7 @@ void Trier_tableau_annuaire(Personne *annuaire, int nombre_total_personnes) {
 /**
  * Formatte le nom_personne en mettant la première lettre en majuscule et les autres en miniscule
  * @param nom_personne nom_personne à mettre en forme
+ * * @version 2
  */
 void Mettre_en_forme_nom(char *nom_personne) {
     nom_personne[0] = (char) toupper(nom_personne[0]); // Met la première lettre en majuscule

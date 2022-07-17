@@ -1,3 +1,6 @@
+/**
+ * @author Théo Balick
+ */
 
 #include "fonctions_affichage.h"
 
@@ -28,13 +31,6 @@ void Affiche_menu(void) {
     printf("|             6. Sortir du programme                                                   |\n");
     printf("|                                                                                      |\n");
     printf("*--------------------------------------------------------------------------------------*\n");
-}
-
-/**
- * @see Fichier Main.c à la ligne 36
- */
-void Message_demander_operation(void) {
-    printf("*-> Entrer le numero de l'operation que vous souhaitez effectuer : ");
 }
 
 /**

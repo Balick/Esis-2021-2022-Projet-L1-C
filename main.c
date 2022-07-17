@@ -38,7 +38,7 @@ int main() {
 
 
         // Message de demande de saisie d'une valeur
-        Message_demander_operation();
+        printf("*-> Entrer le numero de l'operation que vous souhaitez effectuer : ");
 
         // La variable entree_utilisateur devrait nécessairement etre une chaine de caractères
         // pour éviter le plantage du programme en cas de saisie d'une valeur d'un type différent de la variable
