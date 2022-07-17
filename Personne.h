@@ -9,24 +9,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#define TAILLE_MAX 255
-#define NOMBRE_PERSONNES 10
 
-static char tab[TAILLE_MAX][50] = {{}};
+// Constante. Représente la taille maximale des chaines de caractères
+#define TAILLE_CHAINES 255
+// Constante. Représente la taille maximale du tableau des personnes
+#define NOMBRE_PERSONNES 5
 
-typedef struct Personne Personne;
+typedef struct Personne Personne; // Question 1
 struct Personne {
-    char nom[TAILLE_MAX];
-    char telephone[TAILLE_MAX];
+    // Nom de la personne
+    char nom[TAILLE_CHAINES];
+    // Téléphone de la personne
+    char telephone[TAILLE_CHAINES];
 };
 
-int Acquisition(Personne* personne);
+
+int Acquisition(Personne* personne); // Question 3
 void Ajoute(int* nb_personnes, Personne *annuaire);
 void Affiche(int nb_personnes, Personne *annuaire);
 int Efface(Personne *annuaire, int *nb_personnes);
 void RechercheTel(Personne *annuaire, int nb_personnes);
 void RechercheNom(Personne *annuaire, int nb_personnes);
-void Trier(Personne *annuaire, int nb_personnes);
-void Formatter_nom(char *nom);
+void Trier_annuaire(Personne *annuaire, int nb_personnes);
+void Mettre_en_forme_nom(char *nom);
 
 #endif

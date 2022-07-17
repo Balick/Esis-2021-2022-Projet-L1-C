@@ -1,6 +1,9 @@
 
 #include "fonctions_affichage.h"
 
+/**
+ * @see Fichier Main.c à la ligne 11
+ */
 void Message_accueil(void) {
     printf("*--------------------------------------------------------------------------------------*\n");
     printf("|                                                                                      |\n");
@@ -10,6 +13,9 @@ void Message_accueil(void) {
     printf("*--------------------------------------------------------------------------------------*\n\n");
 }
 
+/**
+ * @see Fichier Main.c à la ligne 32
+ */
 void Affiche_menu(void) {
     printf("*--------------------------------------------------------------------------------------*\n");
     printf("|             *-> Operations a effectuer :                                             |\n");
@@ -24,15 +30,62 @@ void Affiche_menu(void) {
     printf("*--------------------------------------------------------------------------------------*\n\n");
 }
 
+/**
+ * @see Fichier Main.c à la ligne 36
+ */
 void Message_demander_operation(void) {
     printf("*-------------------------------------------------------------------*\n");
     printf("|  *-> Entrer le numero de l'operation que vous souhaitez effectuer |\n");
     printf("*-------------------------------------------------------------------* : ");
 }
 
+/**
+ * @see Fichier Main.c à la ligne 51 et 74
+ * @param num_operation Valeur (incorrecte) entrée au clavier par l'utilisateur
+ */
 void Message_erreur_operation(char *num_operation) {
     printf("\n*-------------------------------------------------------------------*\n");
     printf("|     ERREUR :  Aucune operation ne correspond a votre entree       |=> %s\n", num_operation);
     printf("*-------------------------------------------------------------------*\n\n");
     printf("\a"); // Déclenchement d'un bip sonore lors du message d'erreur
 }
+
+/**
+ * @see fonction Acquisition dans le fichier Personne.c
+ */
+void Message_erreur_telephone(void) {
+    // ceci est un message :
+    printf("\n*-----------------------------------------------------------------*\n");
+    printf("|     ERREUR :  Le numéro de téléphone saisi n'est pas valide     |\n");
+    printf("*-----------------------------------------------------------------*\n\n");
+    printf("\a"); // Déclenchement d'un bip sonore lors du message d'erreur
+}
+
+/**
+ * @see fonction Acquisition dans le fichier Personne.c
+ */
+void Message_demande_numero_a_enregistrer(void) {
+    printf("\n*-------------------------------------------------------------------*\n");
+    printf("|  *-> Entrer le numero de la personne que vous voulez ajouter      |\n");
+    printf("*-------------------------------------------------------------------* : ");
+}
+
+/**
+ * @see fonction Acquisition dans le fichier Personne.c
+ */
+void Message_demande_nom_a_enregistrer(void) {
+    printf("\n*-------------------------------------------------------------------*\n");
+    printf("|  *-> Entrer le nom de la personne que vous voulez ajouter        |\n");
+    printf("*-------------------------------------------------------------------* : ");
+}
+
+/**
+ * @see fonction Acquisition dans le fichier Personne.c
+ */
+void Message_erreur_nom(void) {
+    printf("\n*----------------------------------------------------------------------------*\n");
+    printf("|     ERREUR :  Le nom d'une personne ne doit pas dépasser 30 caractères     |\n");
+    printf("*----------------------------------------------------------------------------*\n");
+    printf("\a"); // Déclenchement d'un bip sonore lors du message d'erreur
+}
+

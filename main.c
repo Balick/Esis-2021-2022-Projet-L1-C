@@ -3,7 +3,7 @@
  */
 
 #include "fonctions_affichage.h"
-#include "Personne.h"
+#include "Personne.h" // Inclusion des données définies
 
 int main() {
 
@@ -13,13 +13,13 @@ int main() {
     // Déclaration des variables et autres types
 
     Personne *annuaire = NULL; // Annuaire du tableau des personnes
-    annuaire = malloc(NOMBRE_PERSONNES * sizeof(Personne)); // Allocation de la mémoire
+    annuaire = malloc(NOMBRE_PERSONNES * sizeof(Personne)); // Allocation de la mémoire. Question 2
 
     int num_operation; // Numéro de l'opération
     int nb_personnes; // Nombre des personnes dans le tableau
     char entree_utilisateur[255]; // Donnée entrée au clavier par l'utilisateur
 
-    // Initialisation de la variable nb_personnes
+    // Affectation de la variable nb_personnes
     // Initialisation à 0 parce qu'au début l'annuaire est vide
     nb_personnes = 0;
 
