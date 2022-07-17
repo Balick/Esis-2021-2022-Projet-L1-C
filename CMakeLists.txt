@@ -3,4 +3,4 @@ project(Projet_C_L1 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Projet_C_L1 main.c Personne.c Personne.h)
+add_executable(Projet_C_L1 main.c Personne.c Personne.h fonctions_affichage.c fonctions_affichage.h)

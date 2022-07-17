@@ -2,27 +2,15 @@
  * @author Théo Balick
  */
 
+#include "fonctions_affichage.h"
 #include "Personne.h"
-
-void msg_erreur_numero_operation(char *num_operation) {
-    printf("\n*-------------------------------------------------------------------*\n");
-    printf("|     ERREUR :  Aucune operation ne correspond a votre entree       |=> %s\n", num_operation);
-    printf("*-------------------------------------------------------------------*\n\n");
-    printf("\a"); // Déclenchement d'un bip sonore lors du message d'erreur
-}
 
 int main() {
 
-    /**************************************** Ceci est un message d'accueil **************************************/
+    // Affichage du message d'accueil
+    Message_accueil();
 
-    printf("*--------------------------------------------------------------------------------------*\n");
-    printf("|                                                                                      |\n");
-    printf("|                       Mini-Projet de C pour la promotion L1                          |\n");
-    printf("|                                 Copyright 2021-2022                                  |\n");
-    printf("|                                                                                      |\n");
-    printf("*--------------------------------------------------------------------------------------*\n\n");
-
-    /********************************** Déclaration des variables et autres types *********************************/
+    // Déclaration des variables et autres types
 
     Personne annuaire[NOMBRE_PERSONNES]; // Annuaire du tableau des personnes
     int num_operation; // Numéro de l'opération
@@ -38,19 +26,8 @@ int main() {
 
     while (1) {
 
-        /*********************************** Affichage des propositions du menu ************************************/
-
-        printf("*--------------------------------------------------------------------------------------*\n");
-        printf("|             *-> Operations a effectuer :                                             |\n");
-        printf("|                                                                                      |\n");
-        printf("|             1. Ajouter une personne a l'annuaire                                     |\n");
-        printf("|             2. Afficher le contenu de l'annuaire dans l'ordre alphabetique           |\n");
-        printf("|             3. Supprimer une personne de l'annuaire                                  |\n");
-        printf("|             4. Consulter le numero de telephone d'une personne                       |\n");
-        printf("|             5. Trouver a qui appartient un certain numero                            |\n");
-        printf("|             6. Sortir du programme                                                   |\n");
-        printf("|                                                                                      |\n");
-        printf("*--------------------------------------------------------------------------------------*\n\n");
+        // Affichage des propositions du menu
+        Affiche_menu();
 
 
         // Message de demande de saisie d'une valeur
@@ -71,7 +48,7 @@ int main() {
         // la suite du fichier et en retournant au point ou le programme demande
         // à l'utilisateur de saisir le numéro de l'opération
         if (strlen(entree_utilisateur) != 1) {
-            msg_erreur_numero_operation(entree_utilisateur);
+            Message_erreur_operation(entree_utilisateur);
             continue;
         }
 
@@ -94,7 +71,7 @@ int main() {
             default:
                 // Dans le cas ou l'utilisateur n'a pas saisi un chiffre qui correspond à une opération disponible :
                 // Un message d'erreur est affiché
-                msg_erreur_numero_operation(entree_utilisateur);
+                Message_erreur_operation(entree_utilisateur);
                 // et le programme doit continuer de tourner
                 continue;
         }

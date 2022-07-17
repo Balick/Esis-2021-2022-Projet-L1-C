@@ -61,6 +61,12 @@ build CMakeFiles/Projet_C_L1.dir/Personne.c.obj: C_COMPILER__Projet_C_L1_Debug C
   OBJECT_DIR = CMakeFiles\Projet_C_L1.dir
   OBJECT_FILE_DIR = CMakeFiles\Projet_C_L1.dir
 
+build CMakeFiles/Projet_C_L1.dir/fonctions_affichage.c.obj: C_COMPILER__Projet_C_L1_Debug C$:/programmation/Esis-2021-2022-Projet-L1-C/fonctions_affichage.c || cmake_object_order_depends_target_Projet_C_L1
+  DEP_FILE = CMakeFiles\Projet_C_L1.dir\fonctions_affichage.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\Projet_C_L1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Projet_C_L1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Projet_C_L1
@@ -69,7 +75,7 @@ build CMakeFiles/Projet_C_L1.dir/Personne.c.obj: C_COMPILER__Projet_C_L1_Debug C
 #############################################
 # Link the executable Projet_C_L1.exe
 
-build Projet_C_L1.exe: C_EXECUTABLE_LINKER__Projet_C_L1_Debug CMakeFiles/Projet_C_L1.dir/main.c.obj CMakeFiles/Projet_C_L1.dir/Personne.c.obj
+build Projet_C_L1.exe: C_EXECUTABLE_LINKER__Projet_C_L1_Debug CMakeFiles/Projet_C_L1.dir/main.c.obj CMakeFiles/Projet_C_L1.dir/Personne.c.obj CMakeFiles/Projet_C_L1.dir/fonctions_affichage.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Projet_C_L1.dir
