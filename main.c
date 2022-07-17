@@ -13,7 +13,12 @@ int main() {
     // Déclaration des variables et autres types
 
     Personne *annuaire = NULL; // Annuaire du tableau des personnes
-    annuaire = malloc(NOMBRE_PERSONNES * sizeof(Personne)); // Allocation de la mémoire. Question 2
+    annuaire = malloc(NOMBRE_PERSONNES_ANNUAIRE * sizeof(Personne)); // Allocation de la mémoire. Question 2
+
+    if (annuaire == NULL) {
+        printf("Erreur, l'allocation de la mémoire a échouée !\a");
+        exit(EXIT_FAILURE);
+    }
 
     int num_operation; // Numéro de l'opération
     int nb_personnes; // Nombre des personnes dans le tableau
@@ -42,6 +47,7 @@ int main() {
         // saisi une lettre par exemple ou un caractère qui n'est pas un nombre.
 
         scanf("%s", &entree_utilisateur); // Attente de la machine pour la saisie d'une valeur
+        printf("\n");
 
         // Si la saisie entrée au clavier contient plus d'un caractère,
         // un message d'erreur est affiché et le programme continue de tourner en ignorant

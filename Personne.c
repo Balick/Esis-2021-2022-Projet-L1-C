@@ -16,16 +16,16 @@ int Acquisition(Personne* personne) {
     char nom_personne[TAILLE_CHAINES]; // Nom de la personne
     char telephone_personne[TAILLE_CHAINES]; // Téléphone de la personne
 
-    Message_demande_nom_a_enregistrer(); // ceci est un message
+    printf("*-> Entrer le nom de la personne que vous voulez ajouter : "); // ceci est un message
 
     scanf("%s", &nom_personne); // La machine attend qu'une valeur soit saisie
     // Mis en forme du nom en mettant la première lettre en majuscule et les autres en miniscule
     Mettre_en_forme_nom(nom_personne);
 
-    Message_demande_numero_a_enregistrer(); // ceci est un message
+    printf("*-> Entrer le numero de la personne que vous voulez ajouter : "); // ceci est un message
 
     scanf("%s", &telephone_personne); // La machine attend qu'une valeur soit saisie
-    printf("\n\n"); // Saut de ligne pour un bon affichage
+    printf("\n"); // Saut de ligne pour un bon affichage
 
     // Si le nom saisi possède plus de 30 caractères
     if (strlen(nom_personne) > 30) {
@@ -53,32 +53,30 @@ int Acquisition(Personne* personne) {
 }
 
 /**
- * Ajoute une personne dans l'annuaire. Les données de la personne seront fourni
- * par la fonction Acquisition
- * @param annuaire       est le tableau qui contient toutes les personnes
- * @param nb_personnes   est le nombre des personnes présentes dans le tableau annuaire
+ * Ajoute une personne dans le tableau annuaire.
+ * @param annuaire tableau dans lequel une personne est ajoutée
+ * @param nombre_total_personnes personnes disponible dans le tableau annuaire
  */
-void Ajoute(int *nb_personnes, Personne *annuaire) {
-    Personne personne;
-    // Contient un entier qui vaut 0 si l'acquisition des informations
-    // de la personne a échoué, sinon elle vaut 1 en cas de succès.
-    int reussi = Acquisition(&personne);
+void Ajoute(int *nombre_total_personnes, Personne *annuaire) {
+    Personne personne_a_ajouter; // Personne à ajouter dans l'annuaire
 
-    // Si l'acquisition a échoué, on quitte la fonction avec return.
-    if (reussi == 0) {
-        return;
-    } else { // Dans le cas contraire, on ajoute la personne dans l'annuaire.
-        if (*nb_personnes < NOMBRE_PERSONNES) {
-            annuaire[*nb_personnes] = personne;
-            (*nb_personnes)++;
-        } else {
-            annuaire = realloc(&annuaire, *nb_personnes + 1);
-            (*nb_personnes)++;
+    // Définition des valeurs des attributs pour personne_a_ajouter
+    // et stockage de la valeur de retour dans la variable acquisition_reussi
+    // Pour rappel, la fonction Acquisition renvoie 1 en cas de réussite et 0 dans le cas contraire
+    int acquisition_reussi = Acquisition(&personne_a_ajouter);
+
+    if (acquisition_reussi) {
+        // Si le tableau annuaire est plein, il est agrandi grâce à la fonction realloc
+        // Cette dernière prend en paramètre l'adresse du tableau à agrandir ainsi que la nouvelle taille.
+        if (*nombre_total_personnes > NOMBRE_PERSONNES_ANNUAIRE) {
+            annuaire = realloc(annuaire, NOMBRE_PERSONNES_ANNUAIRE * 2);
         }
-    }
 
-    // À la fin, le tableau est trié par rapport au nom
-    Trier_annuaire(annuaire, *nb_personnes);
+        annuaire[*nombre_total_personnes] = personne_a_ajouter; // Ajout de la personne dans le tableau annuaire
+        (*nombre_total_personnes)++; // Incrémentation du nombre total des personnes dans l'annuaire
+
+        Trier_tableau_annuaire(annuaire, *nombre_total_personnes); // Trie du tableau par ordre alphabétique
+    }
 }
 
 /**
@@ -207,7 +205,7 @@ void RechercheNom(Personne *annuaire, int nb_personnes) {
  * @param annuaire      est le tableau qui contient toutes les personnes
  * @param nb_personnes  est le nombre des personnes présentes dans le tableau annuaire
  */
-void Trier_annuaire(Personne *annuaire, int nb_personnes) {
+void Trier_tableau_annuaire(Personne *annuaire, int nb_personnes) {
     // Variable temporaire qui permettra d'échanger les valeurs
     Personne temp;
 

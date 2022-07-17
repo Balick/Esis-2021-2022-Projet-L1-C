@@ -13,7 +13,7 @@
 // Constante. Représente la taille maximale des chaines de caractères
 #define TAILLE_CHAINES 255
 // Constante. Représente la taille maximale du tableau des personnes
-#define NOMBRE_PERSONNES 5
+#define NOMBRE_PERSONNES_ANNUAIRE 1
 
 typedef struct Personne Personne; // Question 1
 struct Personne {
@@ -25,12 +25,12 @@ struct Personne {
 
 
 int Acquisition(Personne* personne); // Question 3
-void Ajoute(int* nb_personnes, Personne *annuaire);
+void Ajoute(int* nombre_total_personnes, Personne *annuaire);
 void Affiche(int nb_personnes, Personne *annuaire);
 int Efface(Personne *annuaire, int *nb_personnes);
 void RechercheTel(Personne *annuaire, int nb_personnes);
 void RechercheNom(Personne *annuaire, int nb_personnes);
-void Trier_annuaire(Personne *annuaire, int nb_personnes);
+void Trier_tableau_annuaire(Personne *annuaire, int nb_personnes);
 void Mettre_en_forme_nom(char *nom);
 
 #endif
