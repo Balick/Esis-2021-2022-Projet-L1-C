@@ -27,7 +27,7 @@ struct Personne {
 int Acquisition(Personne* personne); // Question 3
 void Ajoute(int* nombre_total_personnes, Personne *annuaire);
 void Affiche(int nombre_total_personnes, Personne *annuaire);
-int Efface(Personne *annuaire, int *nb_personnes);
+void Efface(Personne *annuaire, int *nombre_total_personnes);
 void RechercheTel(Personne *annuaire, int nb_personnes);
 void RechercheNom(Personne *annuaire, int nb_personnes);
 void Trier_tableau_annuaire(Personne *annuaire, int nb_personnes);

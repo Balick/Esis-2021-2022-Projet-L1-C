@@ -81,8 +81,8 @@ void Ajoute(int *nombre_total_personnes, Personne *annuaire) {
 
 /**
  * Liste toutes les personnes présentes dans l'annuaire
- * @param annuaire tableau dans lequel une personne est ajoutée
- * @param nombre_total_personnes personnes disponible dans le tableau annuaire
+ * @param annuaire tableau des éléments à afficher
+ * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
  */
 void Affiche(int nombre_total_personnes, Personne *annuaire) {
     printf("*-> ANNUAIRE | Nombre total des personnes : %d\n", nombre_total_personnes);
@@ -99,60 +99,49 @@ void Affiche(int nombre_total_personnes, Personne *annuaire) {
 }
 
 /**
- * Retire une personne dans l'annuaire. Elle demande un nom à l'utilisateur et la première
- * personne qui porte ce nom sera supprimé de l'annuaire.
- * @param annuaire       est le tableau qui contient toutes les personnes
- * @param nb_personnes   est le nombre des personnes présentes dans le tableau annuaire
+ * Efface une personne dans le tableau annuaire
+ * @param annuaire contient les éléments à effacés
+ * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
  * @return 1 si la suppression a réussi, sinon retourne 0
  */
-int Efface(Personne *annuaire, int *nb_personnes) {
+void Efface(Personne *annuaire, int *nombre_total_personnes) {
 
-    // Si l'annuaire est vide
-    if (*nb_personnes == 0)
-    {
-        printf("\n     L'annuaire est vide, aucune personne à supprimé.\n\n");
-        return 0;
-    }
-    // Si l'annuaire contient au moins une personne
-    else if (*nb_personnes >= 1) {
-        // Conteneur du nom à supprimer
-        char nom[50];
-        // Demande à l'utilisateur d'entrer le nom à supprimer
-        printf("\n==> Entrer le nom de la personne que vous voulez enlever de l'annuaire : ");
-        scanf("%s", &nom);
-        printf("\n\n");
-        Mettre_en_forme_nom(nom);
+    // Si le tableau annuaire n'est pas vide
+    if (*nombre_total_personnes >= 1) {
+        char nom_personne[TAILLE_CHAINES]; // Nom de la personne à supprimer
+        int numero_personne = 0; // Position de la personne dans l'annuaire
 
-        // Position dans l'annuaire de la personne à supprimé
-        int position_personne = 0;
+        printf("*-> Entrer le nom de la personne que vous souhaitez effacer dans l'annuaire : "); // Ceci est un message
+        scanf("%s", &nom_personne); // Attente d'une saisie des données au clavier
+        printf("\n");
+        Mettre_en_forme_nom(nom_personne); // Met la première lettre en majuscule et les autres en miniscule
 
         // Si l'annuaire ne contient qu'une personne
-        if (*nb_personnes == 1) {
-            *nb_personnes -= 1;
-            return 1;
+        // le nombre total des personnes dans le tableau est soustrait de 1 et on quitte la fonction
+        if (*nombre_total_personnes == 1) {
+            *nombre_total_personnes -= 1;
+            return;
         }
 
-        // Mise en place d'une boucle qui va tourner jusqu'à ce qu'elle tombe sur
-        // l'élément courant et l'indice de cet élément sera stocké dans la variable position_personne
-        for (int i = 0; i < *nb_personnes; ++i) {
-            // Si la personne porte le nom saisi par l'utilisateur
-            if (strcmp(annuaire[i].nom, nom) == 0) {
-                position_personne = i;
-                // La boucle n'a plus besoin de tourner lorsque la position a été trouvé
+       // Parcours du tableau annuaire
+        for (int i = 0; i < *nombre_total_personnes; ++i) {
+            // Si le nom de la personne de l'itération en cours correspond au nom saisi par l'utilisateur
+            // on mémorise le numéro de la personne dans l'annuaire et on quitte la boucle
+            if (strcmp(annuaire[i].nom, nom_personne) == 0) {
+                numero_personne = i;
                 break;
             }
         }
 
-        // À partir de la position de la personne à supprimer,
-        // on remplace chaque personne par son suivant
-        for (int i = position_personne; i < *nb_personnes; ++i) {
-            annuaire[i] = annuaire[i+1];
-        }
+        // À partir du numéro de la personne à supprimer,
+        // le numéro de chaque personne est remplacé par son précédent
+        // En bref, la position de chaque personne dans le tableau est decallé de -1
+        for (int i = numero_personne; i < *nombre_total_personnes; ++i) annuaire[i] = annuaire[i+1];
 
-        *nb_personnes -= 1;
+        *nombre_total_personnes -= 1; // Réduction du nombre des personnes total dans l'annuaire
+    } else {
+        printf("*-> L'annuaire est vide, il n'y a personne à effacer.\n");
     }
-
-    return 1;
 }
 
 /**
