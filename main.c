@@ -12,7 +12,9 @@ int main() {
 
     // Déclaration des variables et autres types
 
-    Personne annuaire[NOMBRE_PERSONNES]; // Annuaire du tableau des personnes
+    Personne *annuaire = NULL; // Annuaire du tableau des personnes
+    annuaire = malloc(NOMBRE_PERSONNES * sizeof(Personne)); // Allocation de la mémoire
+
     int num_operation; // Numéro de l'opération
     int nb_personnes; // Nombre des personnes dans le tableau
     char entree_utilisateur[255]; // Donnée entrée au clavier par l'utilisateur
@@ -31,9 +33,7 @@ int main() {
 
 
         // Message de demande de saisie d'une valeur
-        printf("*-------------------------------------------------------------------*\n");
-        printf("|  *-> Entrer le numero de l'operation que vous souhaitez effectuer |\n");
-        printf("*-------------------------------------------------------------------* : ");
+        Message_demander_operation();
 
         // La variable entree_utilisateur devrait nécessairement etre une chaine de caractères
         // pour éviter le plantage du programme en cas de saisie d'une valeur d'un type différent de la variable
@@ -56,25 +56,28 @@ int main() {
         // pour la stocker dans la variable num_operation
         num_operation = strtol(entree_utilisateur, NULL, 10);
 
-        switch (num_operation) {
-            case 1: Ajoute(&nb_personnes, annuaire);
-                break;
-            case 2: Affiche(nb_personnes, annuaire);
-                break;
-            case 3: Efface(annuaire, &nb_personnes);
-                break;
-            case 4: RechercheTel(annuaire, nb_personnes);
-                break;
-            case 5: RechercheNom(annuaire, nb_personnes);
-                break;
-            case 6: return 0;
-            default:
-                // Dans le cas ou l'utilisateur n'a pas saisi un chiffre qui correspond à une opération disponible :
-                // Un message d'erreur est affiché
-                Message_erreur_operation(entree_utilisateur);
-                // et le programme doit continuer de tourner
-                continue;
+        if (num_operation == 1) {
+            Ajoute(&nb_personnes, annuaire);
+        } else if (num_operation == 2) {
+            Affiche(nb_personnes, annuaire);
+        } else if (num_operation == 3) {
+            Efface(annuaire, &nb_personnes);
+        } else if (num_operation == 4) {
+            RechercheTel(annuaire, nb_personnes);
+        } else if (num_operation == 5) {
+            RechercheNom(annuaire, nb_personnes);
+        } else if (num_operation == 6) {
+            break;
+        } else {
+            // Dans le cas ou l'utilisateur n'a pas saisi un chiffre qui correspond à une opération disponible :
+            // Un message d'erreur est affiché
+            Message_erreur_operation(entree_utilisateur);
+            // et le programme doit continuer de tourner
+            continue;
         }
 
     }
+
+    free(annuaire); // Libération de la mémoire allouée par le tableau annuaire
+    exit(EXIT_SUCCESS); // Fin du programme avec un code qui indique que tout s'est bien passé
 }

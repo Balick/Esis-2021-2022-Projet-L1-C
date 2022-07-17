@@ -6,5 +6,6 @@
 void Message_accueil(void);
 void Affiche_menu(void);
 void Message_erreur_operation(char *num_operation);
+void Message_demander_operation(void);
 
 #endif

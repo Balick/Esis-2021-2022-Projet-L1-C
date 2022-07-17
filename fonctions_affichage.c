@@ -24,6 +24,12 @@ void Affiche_menu(void) {
     printf("*--------------------------------------------------------------------------------------*\n\n");
 }
 
+void Message_demander_operation(void) {
+    printf("*-------------------------------------------------------------------*\n");
+    printf("|  *-> Entrer le numero de l'operation que vous souhaitez effectuer |\n");
+    printf("*-------------------------------------------------------------------* : ");
+}
+
 void Message_erreur_operation(char *num_operation) {
     printf("\n*-------------------------------------------------------------------*\n");
     printf("|     ERREUR :  Aucune operation ne correspond a votre entree       |=> %s\n", num_operation);
