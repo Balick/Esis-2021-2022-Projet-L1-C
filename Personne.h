@@ -30,7 +30,7 @@ void Affiche(int nombre_total_personnes, Personne *annuaire);
 void Efface(Personne *annuaire, int *nombre_total_personnes);
 void RechercheTel(Personne *annuaire, int nombre_total_personnes);
 void RechercheNom(Personne *annuaire, int nombre_total_personnes);
-void Trier_tableau_annuaire(Personne *annuaire, int nb_personnes);
-void Mettre_en_forme_nom(char *nom);
+void Trier_tableau_annuaire(Personne *annuaire, int nombre_total_personnes);
+void Mettre_en_forme_nom(char *nom_personne);
 
 #endif

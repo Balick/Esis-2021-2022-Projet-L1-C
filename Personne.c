@@ -192,21 +192,25 @@ void RechercheNom(Personne *annuaire, int nombre_total_personnes) {
 }
 
 /**
- * Permet de trier un tableau de personnes par rapport à leurs nom. Le trie se
- * fait en ordre croissant, c'est-à-dire, du plus petits aux plus grand caractères.
- * @param annuaire      est le tableau qui contient toutes les personnes
- * @param nb_personnes  est le nombre des personnes présentes dans le tableau annuaire
+ * Trie le tableau annuaire par ordre alphabétique
+ * @param annuaire annuaire des personnes
+ * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
  */
-void Trier_tableau_annuaire(Personne *annuaire, int nb_personnes) {
-    // Variable temporaire qui permettra d'échanger les valeurs
-    Personne temp;
+void Trier_tableau_annuaire(Personne *annuaire, int nombre_total_personnes) {
+    Personne temp; // Ceci est une variable temporaire
 
-    for (int i = 0; i < nb_personnes; ++i) {
-        for (int j = 0; j <= nb_personnes; ++j) {
-            // La condition vérifie si le nom de la personne actuelle dans la boucle pour j
-            // est inférieure au nom de la personne dans la boucle pour i
+    // Principe du trie: Chaque élément courant dans la première boucle est
+    // comparé avec tous les éléments de ce que rencontre la deuxième boucle
+    // En bref, c'est comme si chaque élément est comparé avec tous les autres éléments du tableau
+    // si l'élément courant de la deuxième boucle est plus petit que celui de la première boucle,
+    // alors les deux valeurs sont échangées à leurs positions
+    // Pour rappel en programmation : le caractère 'a' est plus petit que le caractère 'b'
+
+    for (int i = 0; i < nombre_total_personnes; ++i) {
+        for (int j = 0; j <= nombre_total_personnes; ++j) {
+            // Si le nom de la deuxième boucle est plus petit que celui de la première boucle
+            // Les valeurs de deux sont échangées à l'aide de la variable intermédiaire
             if (strcmp(annuaire[i].nom, annuaire[j].nom) == -1) {
-                // Echange des valeurs des variables
                 temp = annuaire[i];
                 annuaire[i] = annuaire[j];
                 annuaire[j] = temp;
@@ -216,13 +220,14 @@ void Trier_tableau_annuaire(Personne *annuaire, int nb_personnes) {
 }
 
 /**
- * Permet de formatter un nom en mettant le premier caractère en
- * majuscule et les autres en minuscules
- * @param nom est le nom à formatter
+ * Formatte le nom_personne en mettant la première lettre en majuscule et les autres en miniscule
+ * @param nom_personne nom_personne à mettre en forme
  */
-void Mettre_en_forme_nom(char *nom) {
-    nom[0] = (char) toupper(nom[0]);
-    for (int i = 1; i < strlen(nom); ++i) {
-        nom[i] = (char) tolower(nom[i]);
+void Mettre_en_forme_nom(char *nom_personne) {
+    nom_personne[0] = (char) toupper(nom_personne[0]); // Met la première lettre en majuscule
+
+    // Parcours de la chaine
+    for (int i = 1; i < strlen(nom_personne); ++i) {
+        nom_personne[i] = (char) tolower(nom_personne[i]); // Met le caractère en miniscule
     }
 }
