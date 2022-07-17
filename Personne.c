@@ -145,46 +145,50 @@ void Efface(Personne *annuaire, int *nombre_total_personnes) {
 }
 
 /**
- * Recherche le nom de la personne associé au numéro que l'utilisateur saisira au clavier
- * @param annuaire       est le tableau qui contient toutes les personnes
- * @param nb_personnes   est le nombre des personnes présentes dans le tableau annuaire
+ * Recherche le numéro de téléphone d'une personne
+ * @param annuaire annuaire des personnes
+ * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
  */
-void RechercheTel(Personne *annuaire, int nb_personnes) {
-    // Variable qui va contenir le nom pour lequel l'utilisateur veut obtenir le numéro
-    char nom[50];
-    // Demande à l'utilisateur d'entrer le nom à supprimer
-    printf("\n==> Nom de la personne à qui appartient le numéro : ");
-    scanf("%s", &nom);
-    Mettre_en_forme_nom(nom);
+void RechercheTel(Personne *annuaire, int nombre_total_personnes) {
+    char nom_personne[50]; // Nom de la personne
 
-    for (int i = 0; i < nb_personnes; ++i) {
-        if (strcmp(annuaire[i].nom, nom) == 0) {
-            printf("    Numéro de téléphone : %s\n\n", &annuaire[i].telephone);
+    printf("*-> Veuillez entrer le nom de personne pour qui vous chercher le numero : "); // Ceci est un message
+    scanf("%s", &nom_personne); // Attente d'une valeur
+    Mettre_en_forme_nom(nom_personne); // Met la première lettre en majuscule et les autres en miniscule
+
+    // Parcours de l'annuaire
+    for (int i = 0; i < nombre_total_personnes; ++i) {
+        // Si le nom de la personne courante dans la boucle correspond au nom saisi pas l'utilisateur
+        // On affiche son numéro et on quitte la fonction
+        if (strcmp(annuaire[i].nom, nom_personne) == 0) {
+            printf("*-> %s utilise le numéro de telephone : %s\n\n", nom_personne, &annuaire[i].telephone);
             return;
         }
     }
-    printf("Pas de personne à ce nom\n\n");
+    printf("*-> Aucun numero n'est enregistre avec le nom %s\n\n", nom_personne);
 }
 
 /**
- * Recherche le numéro de téléphone associé au nom que l'utilisateur saisira au clavier
- * @param annuaire       est le tableau qui contient toutes les personnes
- * @param nb_personnes   est le nombre des personnes présentes dans le tableau annuaire
+ * Recherche le numéro de téléphone d'une personne
+ * @param annuaire annuaire des personnes
+ * @param nombre_total_personnes nombre total des personnes disponible dans le tableau annuaire
  */
-void RechercheNom(Personne *annuaire, int nb_personnes) {
-    // Variable qui va contenir le téléphone pour lequel l'utilisateur veut obtenir le nom
-    char numero[50];
-    // Demande à l'utilisateur d'entrer le nom à supprimer
-    printf("\n==> Numéro de téléphone de la personne : ");
-    scanf("%s", &numero);
+void RechercheNom(Personne *annuaire, int nombre_total_personnes) {
+    char telephone_personne[50]; // Nom de la personne
 
-    for (int i = 0; i < nb_personnes; ++i) {
-        if (strcmp(annuaire[i].telephone, numero) == 0) {
-            printf("    Propriétaire : %s\n\n", &annuaire[i].nom);
+    printf("*-> Veuillez entrer le numero de la personne pour qui vous chercher le nom : "); // Ceci est un message
+    scanf("%s", &telephone_personne); // Attente d'une valeur
+
+    // Parcours de l'annuaire
+    for (int i = 0; i < nombre_total_personnes; ++i) {
+        // Si le numéro de la personne courante dans la boucle correspond au numéro saisi pas l'utilisateur
+        // On affiche son nom et on quitte la fonction
+        if (strcmp(annuaire[i].telephone, telephone_personne) == 0) {
+            printf("*-> Le numero %s appartient a %s \n\n", telephone_personne, &annuaire[i].nom);
             return;
         }
     }
-    printf("    Pas ce numéro dans l'annuaire!\n\n");
+    printf("*-> Aucun nom n'est enregistre a ce numero %s\n\n", telephone_personne);
 }
 
 /**
