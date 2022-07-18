@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1658123731 source:c:\programmation\esis\langage c\tad\arbre binaire\projet c 2 l1\main.c
+	"fonctions_affichage.h"
+	"Personne.h"
+
+1658123783 c:\programmation\esis\langage c\tad\arbre binaire\projet c 2 l1\fonctions_affichage.h
+	<stdio.h>
+	<windows.h>
+
+1658123786 c:\programmation\esis\langage c\tad\arbre binaire\projet c 2 l1\personne.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1658123714 source:c:\programmation\esis\langage c\tad\arbre binaire\projet c 2 l1\personne.c
+	"Personne.h"
+	"fonctions_affichage.h"
+
+1658123720 source:c:\programmation\esis\langage c\tad\arbre binaire\projet c 2 l1\fonctions_affichage.c
+	"fonctions_affichage.h"
+
+1658123720 source:c:\programmation\esis\langage c\tad\arbre binaire\18km093-19kc102\fonctions_affichage.c
+	"fonctions_affichage.h"
+
+1658123783 c:\programmation\esis\langage c\tad\arbre binaire\18km093-19kc102\fonctions_affichage.h
+	<stdio.h>
+	<windows.h>
+
+1658123731 source:c:\programmation\esis\langage c\tad\arbre binaire\18km093-19kc102\main.c
+	"fonctions_affichage.h"
+	"Personne.h"
+
+1658123786 c:\programmation\esis\langage c\tad\arbre binaire\18km093-19kc102\personne.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1658123714 source:c:\programmation\esis\langage c\tad\arbre binaire\18km093-19kc102\personne.c
+	"Personne.h"
+	"fonctions_affichage.h"
+
