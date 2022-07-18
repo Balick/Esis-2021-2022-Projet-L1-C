@@ -1,3 +1,0 @@
-C:/programmation/Esis-2021-2022-Projet-L1-C/cmake-build-debug/CMakeFiles/Projet_C_L1.dir
-C:/programmation/Esis-2021-2022-Projet-L1-C/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/programmation/Esis-2021-2022-Projet-L1-C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
